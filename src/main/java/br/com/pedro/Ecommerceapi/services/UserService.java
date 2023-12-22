@@ -7,6 +7,8 @@ import br.com.pedro.Ecommerceapi.utils.mapper.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class UserService {
 
@@ -17,6 +19,13 @@ public class UserService {
 
         var entity = Mapper.parseObject(user, UserModel.class);
         var vo = Mapper.parseObject(userRepository.save(entity),UserDTO.class);
+        return vo;
+    }
+
+    public List<UserDTO> findAll(){
+
+        var vo = Mapper.parseListObject(userRepository.findAll(),UserDTO.class);
+
         return vo;
     }
 
