@@ -4,7 +4,6 @@ import br.com.pedro.Ecommerceapi.dtos.UserDTO;
 import br.com.pedro.Ecommerceapi.models.UserModel;
 import br.com.pedro.Ecommerceapi.repositories.UserRepository;
 import br.com.pedro.Ecommerceapi.utils.mapper.Mapper;
-import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

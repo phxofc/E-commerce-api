@@ -55,7 +55,7 @@ public class UserController {
     public ResponseEntity delete(@PathVariable(value = "id") Long id){
 
         userService.delete(id);
-        return ResponseEntity.status(HttpStatus.OK).body("User Deleted");
+        return ResponseEntity.status(HttpStatus.OK).body("Product Deleted");
     }
 
 }
