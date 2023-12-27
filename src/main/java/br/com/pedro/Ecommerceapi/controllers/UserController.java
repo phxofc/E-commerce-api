@@ -34,4 +34,28 @@ public class UserController {
         return ResponseEntity.status(HttpStatus.OK).body(users);
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<UserDTO> findById(@PathVariable(value = "id") Long id){
+
+        UserDTO persisted = userService.findById(id);
+
+        return ResponseEntity.status(HttpStatus.OK).body(persisted);
+    }
+
+
+    @PutMapping
+    public ResponseEntity<UserDTO> update(@RequestBody UserDTO user){
+
+        UserDTO persisted = userService.update(user);
+
+        return ResponseEntity.status(HttpStatus.OK).body(persisted);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity delete(@PathVariable(value = "id") Long id){
+
+        userService.delete(id);
+        return ResponseEntity.status(HttpStatus.OK).body("User Deleted");
+    }
+
 }
