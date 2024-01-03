@@ -36,6 +36,11 @@ public class UserModel implements UserDetails {
     @Enumerated
     private UserRole role;
 
+    public UserModel(String username, String password, UserRole role) {
+        this.username = username;
+        this.password = password;
+        this.role = role;
+    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
