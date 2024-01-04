@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
+import javax.naming.AuthenticationException;
 import java.sql.SQLIntegrityConstraintViolationException;
 
 import java.util.Date;
@@ -48,6 +49,15 @@ public class ApplicationExceptionHandler extends ResponseEntityExceptionHandler 
         DefaultError error = new DefaultError(HttpStatus.INTERNAL_SERVER_ERROR.value(), "ID NOT FOUND ",dateNow, e.getMessage());
 
         return new ResponseEntity(error, HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+    @ExceptionHandler(IncorrectLoginException.class)
+    public ResponseEntity handleException(IncorrectLoginException e){
+
+        Date dateNow = new Date();
+
+        DefaultError error = new DefaultError(HttpStatus.BAD_REQUEST.value(), "username/password incorrect ",dateNow, e.getMessage());
+
+        return new ResponseEntity(error, HttpStatus.BAD_REQUEST);
     }
 
 
