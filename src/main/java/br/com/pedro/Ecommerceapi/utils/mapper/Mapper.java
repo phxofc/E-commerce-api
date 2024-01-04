@@ -1,5 +1,4 @@
 package br.com.pedro.Ecommerceapi.utils.mapper;
-import br.com.pedro.Ecommerceapi.dtos.UserDTO;
 
 import br.com.pedro.Ecommerceapi.models.UserModel;
 
@@ -9,13 +8,13 @@ public class Mapper {
 
     private static org.modelmapper.ModelMapper mapper = new org.modelmapper.ModelMapper();
 
-    static {
-        mapper.createTypeMap(
-                UserModel.class,
-                UserDTO.class).addMapping(
-                UserModel::getId,UserDTO::setId);
+    //static {
+     //   mapper.createTypeMap(
+           ////     UserModel.class,
+            //    UserDTO.class).addMapping(
+          //      UserModel::getId,UserDTO::setId);
 
-    }
+  //  }
 
     public static <O, D> D parseObject(O origin, Class<D> destination){
         return  mapper.map(origin,destination);

@@ -1,9 +1,7 @@
 package br.com.pedro.Ecommerceapi.controllers;
 
 import br.com.pedro.Ecommerceapi.dtos.ProductDTO;
-import br.com.pedro.Ecommerceapi.dtos.UserDTO;
 import br.com.pedro.Ecommerceapi.services.ProductService;
-import br.com.pedro.Ecommerceapi.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
