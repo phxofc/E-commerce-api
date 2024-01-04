@@ -2,6 +2,7 @@ package br.com.pedro.Ecommerceapi.controllers;
 
 import br.com.pedro.Ecommerceapi.dtos.ProductDTO;
 import br.com.pedro.Ecommerceapi.services.ProductService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -33,7 +34,7 @@ public class ProductController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ProductDTO> findById(@PathVariable(value = "id") Long id){
+    public ResponseEntity<ProductDTO> findById(@Valid  @PathVariable (value = "id") Long id){
 
         ProductDTO persisted = service.findById(id);
 
@@ -42,7 +43,7 @@ public class ProductController {
 
 
     @PutMapping
-    public ResponseEntity<ProductDTO> update(@RequestBody ProductDTO dto){
+    public ResponseEntity<ProductDTO> update(@Valid @RequestBody ProductDTO dto){
 
         ProductDTO persisted = service.update(dto);
 
@@ -50,7 +51,7 @@ public class ProductController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity delete(@PathVariable(value = "id") Long id){
+    public ResponseEntity delete(@Valid @PathVariable(value = "id") Long id){
 
         service.delete(id);
         return ResponseEntity.status(HttpStatus.OK).body("Product Deleted");

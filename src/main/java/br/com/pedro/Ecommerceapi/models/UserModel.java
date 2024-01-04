@@ -2,6 +2,7 @@ package br.com.pedro.Ecommerceapi.models;
 
 import br.com.pedro.Ecommerceapi.enums.UserRole;
 import jakarta.persistence.*;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -24,14 +25,17 @@ public class UserModel implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Valid
     private Long id;
     @NonNull
     @Column(unique = true)
+    @Valid
     private String username;
     @NonNull
     private String password;
     @NonNull
     @Enumerated
+    @Valid
     private UserRole role;
 
     public UserModel(String username, String password, UserRole role) {
