@@ -53,6 +53,6 @@ public class ProductController {
     public ResponseEntity delete(@PathVariable(value = "id") Long id){
 
         service.delete(id);
-        return ResponseEntity.status(HttpStatus.OK).body("User Deleted");
+        return ResponseEntity.status(HttpStatus.OK).body("Product Deleted");
     }
 }

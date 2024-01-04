@@ -1,6 +1,8 @@
 package br.com.pedro.Ecommerceapi.services;
 
 import br.com.pedro.Ecommerceapi.dtos.ProductDTO;
+import br.com.pedro.Ecommerceapi.exceptions.ApplicationExceptionHandler;
+import br.com.pedro.Ecommerceapi.exceptions.NotFoundException;
 import br.com.pedro.Ecommerceapi.models.ProductModel;
 import br.com.pedro.Ecommerceapi.repositories.ProductRepository;
 import br.com.pedro.Ecommerceapi.utils.mapper.Mapper;
@@ -8,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.NoSuchElementException;
+
 
 @Service
 public class ProductService {
@@ -47,16 +51,23 @@ public class ProductService {
 
     public ProductDTO findById(Long id){
 
+
+
         var vo = Mapper.parseObject(repository.findById(id), ProductDTO.class);
+
+        if(vo == null){
+            throw new NotFoundException();
+        }
 
         return vo;
 
     }
 
     public void delete(Long id){
-        var entity = repository.findById(id).orElseThrow();
+        var entity = repository.findById(id).orElseThrow(NoSuchElementException::new);
+
         repository.delete(entity);
-        
+
     }
 
 }
