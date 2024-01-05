@@ -1,7 +1,6 @@
 package br.com.pedro.Ecommerceapi.services;
 
 import br.com.pedro.Ecommerceapi.dtos.ProductDTO;
-import br.com.pedro.Ecommerceapi.exceptions.ApplicationExceptionHandler;
 import br.com.pedro.Ecommerceapi.exceptions.NotFoundException;
 import br.com.pedro.Ecommerceapi.models.ProductModel;
 import br.com.pedro.Ecommerceapi.repositories.ProductRepository;

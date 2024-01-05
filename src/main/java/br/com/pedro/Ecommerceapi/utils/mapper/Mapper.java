@@ -26,6 +26,7 @@ public class Mapper {
             destinationObjects.add(mapper.map(o,destination));
         }
         return  destinationObjects;
+    
 
     }
 
